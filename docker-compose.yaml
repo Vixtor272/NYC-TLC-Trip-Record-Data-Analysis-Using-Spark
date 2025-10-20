@@ -1,0 +1,11 @@
+services:
+  pyspark-notebook:
+    image: jupyter/pyspark-notebook
+    container_name: pyspark-vscode
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      - PYSPARK_SUBMIT_ARGS=--packages net.snowflake:spark-snowflake_2.12:3.1.2,net.snowflake:snowflake-jdbc:3.24.2 pyspark-shell
+
